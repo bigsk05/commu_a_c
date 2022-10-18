@@ -78,9 +78,9 @@ def main():
             brt = fnacs(x)
             if dlong < 0:
                 brt = math.pi * 2 - brt
-                gcdkm = gcd * ro
-                btrd = math.degrees(btr)
-                brtd = math.degrees(brt)
+            gcdkm = gcd * ro
+            btrd = math.degrees(btr)
+            brtd = math.degrees(brt)
         else:
             if rlat >= 0:
                 brt = 0
@@ -101,9 +101,9 @@ def main():
             brt = fnacs(x)
             if dlong < 0:
                 brt = math.pi * 2 - brt
-                gcdkm = gcd * ro
-                btrd = math.degrees(btr)
-                brtd = math.degrees(brt)
+            gcdkm = gcd * ro
+            btrd = math.degrees(btr)
+            brtd = math.degrees(brt)
         else:
             if rlat >= 0:
                 brt = 0
