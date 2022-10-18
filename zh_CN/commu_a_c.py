@@ -5,47 +5,8 @@ sgn = lambda n: 1 if n > 0 else -1 if n < 0 else 0
 fndeg = lambda d, m, s: d + sgn(d) * (m / 60 + s/ 3600)
 fnacs = lambda x: math.pi / 2 - 2 * math.atan(x / (1 + math.sqrt(1 - x * x)))
     
-def main():
-    print("《计算通信方位角和大圆距离程序》")
-
+def calc(tlongd, tlatd, rlongd, rlatd):
     ro = 6370
-
-    while True:
-        tmp = input("发信点经度（度，分，秒）=")
-        try:
-            tmp = [int(t) for t in tmp.split(",")]
-            tlongd = fndeg(tmp[0], tmp[1], tmp[2])
-        except Exception as e:
-            print("错误：", e)
-        else:
-            break
-    while True:
-        tmp = input("发信点纬度（度，分，秒）=")
-        try:
-            tmp = [int(t) for t in tmp.split(",")]
-            tlatd = fndeg(tmp[0], tmp[1], tmp[2])
-        except Exception as e:
-            print("错误：", e)
-        else:
-            break
-    while True:
-        tmp = input("收信点经度（度，分，秒）=")
-        try:
-            tmp = [int(t) for t in tmp.split(",")]
-            rlongd = fndeg(tmp[0], tmp[1], tmp[2])
-        except Exception as e:
-            print("错误：", e)
-        else:
-            break
-    while True:
-        tmp = input("收信点纬度（度，分，秒）=")
-        try:
-            tmp = [int(t) for t in tmp.split(",")]
-            rlatd = fndeg(tmp[0], tmp[1], tmp[2])
-        except Exception as e:
-            print("错误：", e)
-        else:
-            break
 
     tlong = math.radians(tlongd)
     tlat = math.radians(tlatd)
@@ -94,7 +55,7 @@ def main():
         btr = fnacs(x)
 
         if dlong > 0:
-            btr = math.pi * 2 -btr
+            btr = math.pi * 2 - btr
             
         if math.cos(rlat) - 0.0000001 > 0:
             x = (math.sin(tlat) - math.sin(rlat) * math.cos(gcd)) / (math.cos(rlat) * math.sin(gcd))
@@ -112,6 +73,51 @@ def main():
             gcdkm = gcd * ro
             btrd = math.degrees(btr)
             brtd = math.degrees(brt)
+    
+    return gcdkm, btrd, brtd
+
+
+def main():
+    print("《计算通信方位角和大圆距离程序》")
+
+    while True:
+        tmp = input("发信点经度（度，分，秒）=")
+        try:
+            tmp = [int(t) for t in tmp.split(",")]
+            tlongd = fndeg(tmp[0], tmp[1], tmp[2])
+        except Exception as e:
+            print("错误：", e)
+        else:
+            break
+    while True:
+        tmp = input("发信点纬度（度，分，秒）=")
+        try:
+            tmp = [int(t) for t in tmp.split(",")]
+            tlatd = fndeg(tmp[0], tmp[1], tmp[2])
+        except Exception as e:
+            print("错误：", e)
+        else:
+            break
+    while True:
+        tmp = input("收信点经度（度，分，秒）=")
+        try:
+            tmp = [int(t) for t in tmp.split(",")]
+            rlongd = fndeg(tmp[0], tmp[1], tmp[2])
+        except Exception as e:
+            print("错误：", e)
+        else:
+            break
+    while True:
+        tmp = input("收信点纬度（度，分，秒）=")
+        try:
+            tmp = [int(t) for t in tmp.split(",")]
+            rlatd = fndeg(tmp[0], tmp[1], tmp[2])
+        except Exception as e:
+            print("错误：", e)
+        else:
+            break
+
+    gcdkm, btrd, brtd = calc(tlongd, tlatd, rlongd, rlatd)
 
     print("大圆距离为", gcdkm, "(km)")
     d = int(btrd)
