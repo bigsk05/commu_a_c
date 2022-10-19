@@ -130,28 +130,28 @@ function main() {
         for (let i=0;i<tmp.length;i++) {
             tmp2.push(parseInt(tmp[i]))
         }
-        tlongd = fndeg(tmp2[0], tmp2[1], tmp2[2]);
+        let tlongd = fndeg(tmp2[0], tmp2[1], tmp2[2]);
         rl.question("发信点纬度（度，分，秒）=", function(tmp3) {
             tmp3 = tmp3.toString().split(",")
             let tmp4 = [];
             for (let i=0;i<tmp3.length;i++) {
                 tmp4.push(parseInt(tmp3[i]))
             }
-            tlatd = fndeg(tmp4[0], tmp4[1], tmp4[2]);
+            let tlatd = fndeg(tmp4[0], tmp4[1], tmp4[2]);
             rl.question("收信点经度（度，分，秒）=", function(tmp5) {
                 tmp5 = tmp5.toString().split(",")
                 let tmp6 = [];
                 for (let i=0;i<tmp5.length;i++) {
                     tmp6.push(parseInt(tmp5[i]))
                 }
-                rlongd = fndeg(tmp6[0], tmp6[1], tmp6[2]);
+                let rlongd = fndeg(tmp6[0], tmp6[1], tmp6[2]);
                 rl.question("收信点纬度（度，分，秒）=", function(tmp7) {
                     tmp7 = tmp7.toString().split(",")
                     let tmp8 = [];
                     for (let i=0;i<tmp7.length;i++) {
                         tmp8.push(parseInt(tmp7[i]))
                     }
-                    rlatd = fndeg(tmp8[0], tmp8[1], tmp8[2]);
+                    let rlatd = fndeg(tmp8[0], tmp8[1], tmp8[2]);
         
                     let temp = calc(tlongd, tlatd, rlongd, rlatd);
                     let gcdkm = temp[0];
@@ -159,14 +159,14 @@ function main() {
                     let brtd = temp[2];
 
                     console.log("大圆距离为" + gcdkm + "(km)");
-                    d = Math.trunc(btrd);
-                    m = Math.trunc((btrd - d) * 60);
-                    s = (btrd - d - m / 60) * 3600;
-                    console.log("发信点对收信点的方位角为" + d + "度" + m + "分" + s + "秒");
-                    d = Math.trunc(brtd);
-                    m = Math.trunc((brtd - d) * 60);
-                    s = (brtd - d - m / 60) * 3600;
-                    console.log("收信点对发信点的方位角为" + d + "度" + m + "分" + s + "秒");
+                    let dt = Math.trunc(btrd);
+                    let mt = Math.trunc((btrd - dt) * 60);
+                    let st = (btrd - dt - mt / 60) * 3600;
+                    console.log("发信点对收信点的方位角为" + dt + "度" + mt + "分" + st + "秒");
+                    let dr = Math.trunc(brtd);
+                    let mr = Math.trunc((brtd - dr) * 60);
+                    let sr = (brtd - dr - mr / 60) * 3600;
+                    console.log("收信点对发信点的方位角为" + dr + "度" + mr + "分" + sr + "秒");
                     process.exit(0);
                 });
             });
