@@ -125,27 +125,27 @@
     <div id="app">
         <p>
             发信点经度（度，分，秒）
-            <input type="number" v-model="tlongdd" max="180" placeholder="度" style="width:40px; height:20px;">
-            <input type="number" v-model="tlongdm" max="60" placeholder="分" style="width:40px; height:20px;">
-            <input type="number" v-model="tlongds" max="60" placeholder="秒" style="width:40px; height:20px;">
+            <input type="number" v-model="tlongdd" max="180" min="-180" placeholder="度" style="width:40px; height:20px;">
+            <input type="number" v-model="tlongdm" max="60" min="-60" placeholder="分" style="width:40px; height:20px;">
+            <input type="number" v-model="tlongds" max="60" min="-60" placeholder="秒" style="width:40px; height:20px;">
         </p>
         <p>
             发信点纬度（度，分，秒）
-            <input type="number" v-model="tlatdd" max="180" placeholder="度" style="width:40px; height:20px;">
-            <input type="number" v-model="tlatdm" max="60" placeholder="分" style="width:40px; height:20px;">
-            <input type="number" v-model="tlatds" max="60" placeholder="秒" style="width:40px; height:20px;">
+            <input type="number" v-model="tlatdd" max="90" min="-90" placeholder="度" style="width:40px; height:20px;">
+            <input type="number" v-model="tlatdm" max="60" min="-60" placeholder="分" style="width:40px; height:20px;">
+            <input type="number" v-model="tlatds" max="60" min="-60" placeholder="秒" style="width:40px; height:20px;">
         </p>
         <p>
             收信点经度（度，分，秒）
-            <input type="number" v-model="rlongdd" max="180" placeholder="度" style="width:40px; height:20px;">
-            <input type="number" v-model="rlongdm" max="60" placeholder="分" style="width:40px; height:20px;">
-            <input type="number" v-model="rlongds" max="60" placeholder="秒" style="width:40px; height:20px;">
+            <input type="number" v-model="rlongdd" max="180" min="-180" placeholder="度" style="width:40px; height:20px;">
+            <input type="number" v-model="rlongdm" max="60" min="-60" placeholder="分" style="width:40px; height:20px;">
+            <input type="number" v-model="rlongds" max="60" min="-60" placeholder="秒" style="width:40px; height:20px;">
         </p>
         <p>
             收信点纬度（度，分，秒）
-            <input type="number" v-model="rlatdd" max="180" placeholder="度" style="width:40px; height:20px;">
-            <input type="number" v-model="rlatdm" max="60" placeholder="分" style="width:40px; height:20px;">
-            <input type="number" v-model="rlatds" max="60" placeholder="秒" style="width:40px; height:20px;">
+            <input type="number" v-model="rlatdd" max="90" min="-90" placeholder="度" style="width:40px; height:20px;">
+            <input type="number" v-model="rlatdm" max="60" min="-60" placeholder="分" style="width:40px; height:20px;">
+            <input type="number" v-model="rlatds" max="60" min="-60" placeholder="秒" style="width:40px; height:20px;">
         </p>
         <p>大圆距离为{{gcdkm}}(km)</p>
         <p>发信点对收信点的方位角为{{btrdd}}度{{btrdm}}分{{btrds}}秒</p>
